@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Thanakorn — E‑Portfolio</title>
+    <meta name="description" content="E‑portfolio for a Senior Frontend & Senior Backend minded UX/UI Designer — coding-themed, responsive, animated, and accessible." />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;800&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+              mono: ['JetBrains Mono', 'ui-monospace', 'SFMono-Regular']
+            },
+            colors: {
+              ink: {
+                50: '#f8fafc',
+                100: '#f1f5f9',
+                800: '#0b1220',
+                900: '#080d17'
+              },
+              accent: {
+                400: '#5eead4',
+                500: '#34d399',
+                600: '#10b981',
+              }
+            },
+            boxShadow: {
+              glow: '0 0 40px rgba(16,185,129,0.25)'
+            },
+            keyframes: {
+              floaty: {
+                '0%, 100%': { transform: 'translateY(0px)' },
+                '50%': { transform: 'translateY(-8px)' }
+              },
+              gradientMove: {
+                '0%': { 'background-position': '0% 50%' },
+                '50%': { 'background-position': '100% 50%' },
+                '100%': { 'background-position': '0% 50%' }
+              }
+            },
+            animation: {
+              floaty: 'floaty 6s ease-in-out infinite',
+              gradient: 'gradientMove 7s ease infinite'
+            }
+          }
+        },
+        darkMode: 'class'
+      }
+    </script>
+
+    <style>
+      .glass { backdrop-filter: saturate(180%) blur(12px); background: rgba(15, 23, 42, 0.55); }
+      .reveal { opacity: 0; transform: translateY(12px); transition: opacity .7s ease, transform .7s ease; }
+      .reveal.in { opacity: 1; transform: translateY(0); }
+    </style>
+  </head>
+
+  <body class="bg-ink-50 dark:bg-ink-900 text-ink-900 dark:text-white font-sans">
+    <!-- Navigation -->
+    <header class="sticky top-0 z-50 bg-white/70 dark:bg-ink-900/40 backdrop-blur border-b border-white/10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+          <a href="#home" class="flex items-center gap-3 group">
+            <span class="inline-flex h-9 w-9 items-center justify-center rounded-xl glass shadow-glow animate-floaty">
+              <!-- simple code icon -->
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M8 16L4 12L8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M16 8L20 12L16 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M14 4L10 20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </span>
+            <span class="text-sm tracking-widest font-mono uppercase">Senior UX·UI Coder</span>
+          </a>
+
+          <nav class="hidden md:flex items-center gap-6">
+            <a class="hover:text-accent-400" href="#work">Work</a>
+            <a class="hover:text-accent-400" href="#skills">Skills</a>
+            <a class="hover:text-accent-400" href="#about">About</a>
+            <a class="hover:text-accent-400" href="#experience">Experience</a>
+            <a class="hover:text-accent-400" href="#contact">Contact</a>
+            <button id="themeToggle" class="ml-2 rounded-xl px-3 py-2 text-sm border border-white/10 hover:border-white/20 glass" aria-label="Toggle dark mode">🌗</button>
+          </nav>
+
+          <!-- Mobile -->
+          <button class="md:hidden p-2 rounded-lg border border-white/10" id="menuBtn" aria-expanded="false" aria-controls="mobileNav" aria-label="Open Menu">☰</button>
+        </div>
+      </div>
+
+      <!-- Mobile menu panel -->
+      <div id="mobileNav" class="md:hidden hidden border-t border-white/10 bg-white/70 dark:bg-ink-900/60 backdrop-blur">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex flex-col gap-2">
+          <a class="py-2" href="#work">Work</a>
+          <a class="py-2" href="#skills">Skills</a>
+          <a class="py-2" href="#about">About</a>
+          <a class="py-2" href="#experience">Experience</a>
+          <a class="py-2" href="#contact">Contact</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section id="home" class="relative overflow-hidden">
+      <div class="absolute inset-0 -z-10 opacity-70">
+        <div class="absolute -top-32 -right-24 w-[32rem] h-[32rem] rounded-full blur-3xl" style="background: radial-gradient(600px 600px at 100% 0%, rgba(16,185,129,0.35), transparent 60%);"></div>
+        <div class="absolute -bottom-24 -left-24 w-[28rem] h-[28rem] rounded-full blur-3xl" style="background: radial-gradient(600px 600px at 0% 100%, rgba(99,102,241,0.25), transparent 60%);"></div>
+      </div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-28">
+        <div class="grid lg:grid-cols-2 gap-10 items-center">
+          <div class="reveal">
+            <p class="font-mono text-xs uppercase tracking-[0.3em] text-ink-800 dark:text-white/60">Beauty: <span class="text-accent-500">Senior Frontend</span> · Usability: <span class="text-accent-500">Senior Backend</span></p>
+            <h1 class="mt-4 text-4xl sm:text-6xl font-extrabold leading-tight">
+              I craft <span class="bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 via-cyan-400 to-indigo-400 bg-[length:300%_300%] animate-gradient">beautiful</span> & <span class="underline decoration-accent-400 decoration-4 underline-offset-4">usable</span> products.
+            </h1>
+            <p class="mt-5 text-lg text-ink-800/80 dark:text-white/70 max-w-xl">Senior UX/UI designer who codes. I bridge design systems and production-grade frontends, pairing pixel-perfect aesthetics with reliable backend-driven usability.</p>
+            <div class="mt-8 flex flex-wrap gap-3">
+              <a href="#work" class="px-5 py-3 rounded-2xl bg-ink-900 text-white dark:bg-white dark:text-ink-900 hover:shadow-glow transition">View Work</a>
+              <a href="#contact" class="px-5 py-3 rounded-2xl border border-white/20 hover:border-white/40 glass">Get in touch</a>
+            </div>
+            <div class="mt-10 flex items-center gap-6 text-sm text-ink-800/70 dark:text-white/60">
+              <span class="inline-flex items-center gap-2"><span class="h-2 w-2 rounded-full bg-accent-500 animate-pulse"></span> Open to freelance</span>
+              <span class="inline-flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18m9-9H3"/></svg> Bangkok · Remote</span>
+            </div>
+          </div>
+
+          <div class="relative reveal">
+            <div class="aspect-square rounded-3xl border border-white/10 glass p-6 shadow-glow">
+              <img src="https://plus.unsplash.com/premium_photo-1734603747480-dca1dae1087e?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              class="h-full w-full bg-center bg-cover" />
+            </div>
+            <div class="absolute -bottom-6 -left-6 w-28 h-28 rounded-2xl bg-gradient-to-tr from-emerald-400 to-cyan-400 blur-xl opacity-60"></div>
+            <div class="absolute -top-6 -right-6 w-24 h-24 rounded-full bg-gradient-to-tr from-indigo-400 to-emerald-400 blur-xl opacity-60"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="py-24 bg-white/60 dark:bg-ink-900/30 border-y border-white/10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="reveal mb-10">
+          <h2 class="text-3xl sm:text-4xl font-bold">Skill Stack</h2>
+          <p class="text-ink-800/70 dark:text-white/60">Beauty × Usability: where design intuition meets engineering rigor.</p>
+        </div>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="reveal rounded-3xl border border-white/10 glass p-6">
+            <h3 class="font-semibold tracking-wide">Senior Frontend — Beauty</h3>
+            <ul class="mt-4 grid grid-cols-2 sm:grid-cols-3 gap-2 text-sm">
+              <li class="px-3 py-2 rounded-xl bg-ink-100 dark:bg-white/5">TypeScript</li>
+              <li class="px-3 py-2 rounded-xl bg-ink-100 dark:bg-white/5">React · Next.js</li>
+              <li class="px-3 py-2 rounded-xl bg-ink-100 dark:bg-white/5">Tailwind · CSS</li>
+              <li class="px-3 py-2 rounded-xl bg-ink-100 dark:bg-white/5">Animations</li>
+              <li class="px-3 py-2 rounded-xl bg-ink-100 dark:bg-white/5">Design Tokens</li>
+              <li class="px-3 py-2 rounded-xl bg-ink-100 dark:bg-white/5">Accessibility</li>
+            </ul>
+          </div>
+          <div class="reveal rounded-3xl border border-white/10 glass p-6">
+            <h3 class="font-semibold tracking-wide">Senior Backend — Usability</h3>
+            <ul class="mt-4 grid grid-cols-2 sm:grid-cols-3 gap-2 text-sm">
+              <li class="px-3 py-2 rounded-xl bg-ink-100 dark:bg-white/5">API Design</li>
+              <li class="px-3 py-2 rounded-xl bg-ink-100 dark:bg-white/5">Node.js</li>
+              <li class="px-3 py-2 rounded-xl bg-ink-100 dark:bg-white/5">PHP · Laravel</li>
+              <li class="px-3 py-2 rounded-xl bg-ink-100 dark:bg-white/5">MySQL · Postgres</li>
+              <li class="px-3 py-2 rounded-xl bg-ink-100 dark:bg-white/5">Caching & Perf</li>
+              <li class="px-3 py-2 rounded-xl bg-ink-100 dark:bg-white/5">Testing</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="py-24">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-3 gap-10 items-start">
+          <div class="reveal lg:col-span-2">
+            <h2 class="text-3xl sm:text-4xl font-bold">About</h2>
+            <p class="mt-4 text-ink-800/80 dark:text-white/70 leading-relaxed">I’m a UX/UI designer who codes, pairing systems thinking with a product mindset. I translate research into elegant interfaces, then ship performant, accessible frontends that integrate seamlessly with real-world backends.</p>
+            <div class="mt-6 grid sm:grid-cols-2 gap-4">
+              <div class="rounded-2xl border border-white/10 glass p-4">
+                <div class="font-semibold">Principles</div>
+                <ul class="mt-2 text-sm space-y-1 text-ink-800/70 dark:text-white/60 list-disc list-inside">
+                  <li>Clarity over cleverness</li>
+                  <li>Progressive enhancement</li>
+                  <li>Accessible by default</li>
+                </ul>
+              </div>
+              <div class="rounded-2xl border border-white/10 glass p-4">
+                <div class="font-semibold">Toolbox</div>
+                <p class="mt-2 text-sm text-ink-800/70 dark:text-white/60">Figma, Storybook, GitHub Actions, Vite, Next.js, Laravel, MySQL, Postgres, Playwright.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" class="py-24 bg-white/60 dark:bg-ink-900/30 border-y border-white/10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="reveal mb-10">
+          <h2 class="text-3xl sm:text-4xl font-bold">Experience</h2>
+          <p class="text-ink-800/70 dark:text-white/60">Highlights from the last few years.</p>
+        </div>
+        <ol class="relative border-s border-white/10">
+          <li class="reveal ms-6 pb-10">
+            <span class="absolute -start-3.5 flex h-7 w-7 items-center justify-center rounded-full bg-ink-900 text-white dark:bg-white dark:text-ink-900 font-mono text-xs">25</span>
+            <div class="rounded-2xl border border-white/10 glass p-4">
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <h3 class="font-semibold">Lead UX Engineer — FinTech</h3>
+                <time class="text-sm text-ink-800/60 dark:text-white/60">2023–2025</time>
+              </div>
+              <p class="mt-2 text-sm text-ink-800/80 dark:text-white/70">Owned design system, front‑of‑front, and a11y program across 6 squads.</p>
+            </div>
+          </li>
+          <li class="reveal ms-6 pb-10">
+            <span class="absolute -start-3.5 flex h-7 w-7 items-center justify-center rounded-full bg-ink-900 text-white dark:bg-white dark:text-ink-900 font-mono text-xs">24</span>
+            <div class="rounded-2xl border border-white/10 glass p-4">
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <h3 class="font-semibold">Senior Frontend — GovTech</h3>
+                <time class="text-sm text-ink-800/60 dark:text-white/60">2021–2023</time>
+              </div>
+              <p class="mt-2 text-sm text-ink-800/80 dark:text-white/70">Refactored UI lib to WCAG 2.2 AA; reduced JS by 42%; time‑to‑interactive -35%.</p>
+            </div>
+          </li>
+          <li class="reveal ms-6">
+            <span class="absolute -start-3.5 flex h-7 w-7 items-center justify-center rounded-full bg-ink-900 text-white dark:bg-white dark:text-ink-900 font-mono text-xs">22</span>
+            <div class="rounded-2xl border border-white/10 glass p-4">
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <h3 class="font-semibold">Product Designer (who codes)</h3>
+                <time class="text-sm text-ink-800/60 dark:text-white/60">2018–2021</time>
+              </div>
+              <p class="mt-2 text-sm text-ink-800/80 dark:text-white/70">From research to shipping — led journeys, IA, and React delivery.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-24">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="reveal text-center">
+          <h2 class="text-3xl sm:text-4xl font-bold">Let’s build something people love</h2>
+          <p class="mt-3 text-ink-800/70 dark:text-white/60">Drop a line about your project, timeline, and goals.</p>
+        </div>
+        <form class="reveal mt-10 grid gap-4 rounded-3xl border border-white/10 glass p-6" onsubmit="event.preventDefault(); alert('Thanks! I will reply shortly.'); this.reset();">
+          <div class="grid sm:grid-cols-2 gap-4">
+            <label class="text-sm">Name<input required type="text" class="mt-1 w-full px-3 py-2 rounded-xl bg-white/70 dark:bg-white/5 border border-white/10 focus:outline-none focus:ring-2 focus:ring-accent-500" placeholder="Your name"/></label>
+            <label class="text-sm">Email<input required type="email" class="mt-1 w-full px-3 py-2 rounded-xl bg-white/70 dark:bg-white/5 border border-white/10 focus:outline-none focus:ring-2 focus:ring-accent-500" placeholder="you@domain.com"/></label>
+          </div>
+          <label class="text-sm">Project details<textarea required rows="4" class="mt-1 w-full px-3 py-2 rounded-xl bg-white/70 dark:bg-white/5 border border-white/10 focus:outline-none focus:ring-2 focus:ring-accent-500" placeholder="Briefly describe your project…"></textarea></label>
+          <div class="flex items-center justify-between gap-4 flex-wrap">
+            <div class="flex items-center gap-2 text-sm">
+              <input id="nda" type="checkbox" class="h-4 w-4 rounded border-white/20 bg-white/10"/>
+              <label for="nda">NDA required</label>
+            </div>
+            <button class="px-5 py-3 rounded-2xl bg-ink-900 text-white dark:bg-white dark:text-ink-900 hover:shadow-glow transition">Send inquiry</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <footer class="py-14 text-center text-sm text-ink-800/70 dark:text-white/60">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="reveal flex flex-col items-center gap-3">
+          <div class="font-mono">© <span id="year"></span> Senior UX/UI Coder</div>
+          <div class="flex items-center gap-4">
+            <a class="hover:text-accent-400" href="#">GitHub</a>
+            <a class="hover:text-accent-400" href="#">LinkedIn</a>
+            <a class="hover:text-accent-400" href="#">Dribbble</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts: theme toggle, reveal on scroll, mobile menu -->
+    <script>
+      const docEl = document.documentElement;
+      const themeToggle = document.getElementById('themeToggle');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const stored = localStorage.getItem('theme');
+      if (stored ? stored === 'dark' : prefersDark) docEl.classList.add('dark');
+
+      themeToggle?.addEventListener('click', () => {
+        docEl.classList.toggle('dark');
+        localStorage.setItem('theme', docEl.classList.contains('dark') ? 'dark' : 'light');
+      });
+
+      // Mobile menu
+      const menuBtn = document.getElementById('menuBtn');
+      const mobileNav = document.getElementById('mobileNav');
+      menuBtn?.addEventListener('click', () => {
+        const open = mobileNav.classList.toggle('hidden');
+        menuBtn.setAttribute('aria-expanded', String(!open));
+      });
+
+      // Reveal on scroll
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+      // Year
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
